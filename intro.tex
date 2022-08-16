@@ -1,0 +1,24 @@
+\chapwithtoc{Introduction}
+
+Flow cytometry has recently been improved by the ability to capture a wide sample of the emitted spectrum, enhancing its ability to measure expression of multiple specific markers and their combinations in single cells. It enables high-throughput sample analysis on a single-cell level, that is considerably cheaper than other single-cell methods such as transcriptomics. This makes spectral flow cytometry analysis a popular and widely adopted method in basic, clinical and translational research. Experiments in spectral flow cytometry require unmixing --- a process used to infer the original abundances of fluorochromes bound to antibodies, for the studied markers.
+
+This thesis focuses on performance evaluation and comparison of selected algorithms commonly used for unmixing spectral flow cytometry data against nougad --- a novel non-linear algorithm based on gradient descent optimization. 
+The unmixing problem is usually tackled via linear algorithms such as Ordinary Least Squares (OLS) or Weighted Least Squares (WLS) and their modifications. Factors such as various non-constant and non-linear noise sources and spillover spreading lead to sometimes considerable inaccuracies in results obtained by the majority of these linear unmixing methods.
+
+In order to objectively evaluate the tested algorithms and their performance, we have generated an artificial data set with known ground truth and characteristics similar to those of real experimental data. To fully realize the potential of nougad algorithm we have devised a hyperparameter tuning process using Bayesian optimization. Additionally, to significantly increase the speed of this optimization we also implemented a parallelized version of nougad that leverages Central Processing Unit (CPU) multi-threading. The generated data was used to evaluate performance of nougad using a custom momentum-based optimizer and ADAM optimizer against OLS and WLS in their clamped and unclamped variants.
+
+Results show that nougad with momentum-based optimizer and tuned hyperparameters consistently outperforms OLS and WLS algorithms in both variations, while ADAM optimizer based nougad falls short of both. 
+
+
+
+\section*{Layout of the thesis}
+
+First chapter of this thesis is dedicated to basic underlying principles of spectral flow cytometry and elucidates the challenges arising during the unmixing process in simple terms.  
+
+Second chapter re-frames the problem in mathematical context and reviews the commonly used mathematical methods for tackling it. Later in the chapter general gradient descent minimization algorithm is introduced and its usage in the unmixing problem is rationalized. Finally the variants and modifications of gradient descent algorithm implemented by the nougad package are introduced and detailed. 
+
+In the third chapter the rationale and step-by-step process behind generating the artificial testing data is detailed. In the next part the Bayesian process used for hyperparameter tuning is explained. 
+
+The final chapter is dedicated to comparing unmixing results on artificial data between the optimized Nougad algorithm and linear alternatives using various numeric and visual methods. Towards the end of the chapter we touch on unmixing results from the real experimental data. Last part of the chapter is the discussion where we make the method recommendation and highlight the advantages, disadvantages and limitations of the testing process and tested algorithms.
+
+In the conclusion we summarize the achieved and missed goals. Finally we outline potential future improvements and direction for further research.

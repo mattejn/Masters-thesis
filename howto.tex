@@ -1,0 +1,42 @@
+\chapter{Using R scripts and markdown files}
+
+This appendix serves as a very concise guide to supplemental materials.
+
+To compile and run the scripts and Markdown document, you will need R (preferably in the latest version). You will also need to install all the libraries that are loaded at the start of scripts/markdowns.
+
+Non-standard libraries:
+\begin{itemize}
+    \item My implementation of \texttt{multithreaded nougad} is available from: \url{https://github.com/mattejn/nougad_mt}.
+    \item Original \texttt{nougad} from: \url{https://github.com/exaexa/nougad}.
+    \item And \texttt{EmbedSOM} package from: \url{https://github.com/exaexa/EmbedSOM}.
+    \item The materials themselves can be downloaded from GitHub as well: \url{https://github.com/mattejn/artificial_data_comp/}.
+\end{itemize}
+
+All other libraries should be available from standard repositories. 
+
+The supplement folder for this thesis contains 5 files:
+
+\begin{enumerate}
+    \item \textbf{Main markdown file:} \begin{verbatim}`Appendix.Rmd'\end{verbatim}
+    
+    A notebook in R markdown format containing scripts responsible for artificial data generation, numerical comparisons and the vast majority of visualizations used in this thesis (including a lot of unused). Comments headings and short descriptions should make the function of each chunk apparent. Keep in mind that executing some of the functions, such as data generation and unmixing or Extensive plotting/embedding on thousands of points and sometimes up to hundreds of plots can be quite computationally expensive and take a long time. 
+    
+    \item \textbf{Function file:} \begin{verbatim}`functions.R'\end{verbatim}
+    
+    File housing the custom functions, such as the model used to generate the artificial data and a function that builds data set objects with precalculated metrics for the main markdown file.
+    
+    \item \textbf{R file:} \begin{verbatim}`bayes.R'\end{verbatim}
+    
+    The Bayesian optimization script for hyperparameter tuning using multithreaded nougad with exact same settings and inputs as used and described for this thesis. Be aware that this will take a very long time. The optimization is set to run for 2000 iterations which, even on my quite powerful modern computer took around 30 hours. You can try and lower the number of iterations that is being passed to the `MBOControl' object. This of course no longer corresponds to the process used in this thesis.
+    
+    \item \textbf{A comma-separated values (csv) file:} \begin{verbatim}`phenotypes_noAFonly.csv'\end{verbatim}
+    
+    The phenotype table used for artificial data generation. It's characteristics are detailed in this thesis.
+    
+    \item \textbf{A Java-script object notation (json) file:} \begin{verbatim}`panel1_lymph_subtracted_fixed.json'\end{verbatim}
+    
+    The single stain Spectra used for the artificial data generator as well as unmixing of artificial and real data. Measured using the \texttt{PanelBuildeR} package with subtracted Autofluorescence.
+    
+\end{enumerate}
+
+What is not included is the script used to produce visualizations containing the real data as well as \cref{fig:6-way_nb}. The real date itself is also not included. These items will be provided if requested but should not be publicly available.

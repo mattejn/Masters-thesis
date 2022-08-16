@@ -1,0 +1,21 @@
+\chapwithtoc{Conclusion}
+
+The main goal of this thesis was to evaluate the performance of a non-linear unmixing algorithm nougad, and compare it to two commonly used linear alternatives --- ordinary and weighted least squares unmixing. 
+
+To objectively measure the performance, we implemented a data-generating pipeline that simulates common phenomena in cytometry measurements, enabling us to generate artificial data with known ground truth that are sufficiently similar to realistic datasets. The model reproduces the common cell distributions and several phenomena caused by measurement noise, such as spillover spread.
+
+A detailed performance comparison and evaluation of the tested method is the main result of this thesis. We provided both numeric and visual comparisons and highlighted the main differences, exploring their possible causes. Because of the need for ground truth in datasets, this comparison is inherently limited to simulated datasets (as it is currently nearly impossible to obtain sufficiently detailed ground truth for real cytometry data). For empirical illustration, we additionally showed how the algorithm differences impact the outcome on an example whole-blood dataset from a real experiment.
+
+As a side result, we improved the nougad algorithm by providing a simple multi-threaded implementation that computes the results faster. We additionally tuned the algorithm hyperparameters using Bayesian optimization, obtaining an improvement in the testing metrics.
+
+While we did not find the ultimate solution to the unmixing problem in spectral flow cytometry, we have created an evaluation methodology that can be used to scrutinize and optimize the possible upcoming algorithms. As a main outcome, it seems that the non-linear unmixing based on algorithms similar to nougad is a very promising choice for the future of cytometry, and should be considered for future research and experiments.
+
+\section*{Future Work}
+
+It is possible to further tune the model used for generating the artificial data. Here multiple different approaches could be taken including introducing even more variables and modelling more than two noise sources. In order to find optimal values for the various hyperparameters Expectation-maximization approach seems like the best fit and given enough time and resources it is worth exploring. Also simulating cell types other than just Lymphocytes (such as Monoctyes, Macrophages etc.) could prove worthwhile.
+
+More extensive hyperparameter tuning for Nougad itself could be performed by performing more iterations of the Bayesian search algorithm, however this would bring minor performance improvement at best. 
+
+It would also be beneficial to test the algorithms on data generated using spectra from measured on different instruments using different number detectors with various configurations and different fluorochromes. We are also positive that there are other metrics that are relevant and could be used to extend our evaluation. 
+
+Finally some type of objective evaluation on real data would be most desirable but most likely impossible. However, an empirical evaluation by multiple experts in the field would likely be beneficial. 

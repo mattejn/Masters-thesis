@@ -1,0 +1,96 @@
+
+
+%%% Choose a language %%%
+
+\newif\ifEN
+\ENtrue   % uncomment this for english
+%\ENfalse   % uncomment this for czech
+
+%%% Configuration of the title page %%%
+
+%\def\ThesisTitleStyle{mff} % MFF style
+%\def\ThesisTitleStyle{cuni} % uncomment for old-style with cuni.cz logo
+\def\ThesisTitleStyle{natur} % uncomment for nature faculty logo
+
+%\def\UKFaculty{Faculty of Mathematics and Physics}
+\def\UKFaculty{Faculty of Science}
+
+\def\UKName{Charles University in Prague} % this is not used in the "mff" style
+
+% Thesis type names, as used in several places in the title
+%\def\ThesisTypeTitle{\ifEN BACHELOR THESIS \else BAKALÁŘSKÁ PRÁCE \fi}
+\def\ThesisTypeTitle{\ifEN MASTER'S THESIS \else DIPLOMOVÁ PRÁCE \fi}
+%\def\ThesisTypeTitle{\ifEN RIGOROUS THESIS \else RIGORÓZNÍ PRÁCE \fi}
+%\def\ThesisTypeTitle{\ifEN DOCTORAL THESIS \else DISERTAČNÍ PRÁCE \fi}
+%\def\ThesisGenitive{\ifEN  master's \else bakalářské \fi}
+\def\ThesisGenitive{\ifEN master's \else diplomové \fi}
+%\def\ThesisGenitive{\ifEN rigorous \else rigorózní \fi}
+%\def\ThesisGenitive{\ifEN doctoral \else disertační \fi}
+%\def\ThesisAccusative{\ifEN  master's \else bakalářskou \fi}
+\def\ThesisAccusative{\ifEN master's \else diplomovou \fi}
+%\def\ThesisAccusative{\ifEN rigorous \else rigorózní \fi}
+%\def\ThesisAccusative{\ifEN doctoral \else disertační \fi}
+
+
+
+%%% Fill in your details %%%
+
+% (Note: \xxx is a "ToDo label" which makes the unfilled visible. Remove it.)
+\def\ThesisTitle{Optimization and applications of non-linear spectral unmixing in flow cytometry}
+\def\ThesisAuthor{Matěj Nemec}
+\def\YearSubmitted{2022}
+
+% department assigned to the thesis
+\def\Department{Department of Cell Biology}
+% Is it a department (katedra), or an institute (ústav)?
+\def\DeptType{Department}
+
+\def\Supervisor{RNDr.~Jan Musil, Ph.D.}
+\def\SupervisorsDepartment{ÚHKT}
+
+% Study programme and specialization
+\def\StudyProgramme{{Bioinformatics}}
+\def\StudyBranch{{Bioinformatics}}
+
+\def\Dedication{%
+First and foremost I would like to thank Mirek Kratochvíl. Without his guidance and mentorship this thesis would not see the light of day. His patience, intellect and kidness cannot be overstated. Same goes for my supervisor and boss Jan Musil, who was always willing to help and very understanding and accomodating in every aspect. I would also love to thank my close family that supports my every decision and endeavour. I could not wish for more. And finally to my UHKT colleagues and my friends who make life more fun. 
+}
+
+\def\AbstractEN{%
+
+Recent advances in flow cytometry techniques enable high-throughput single-cell experiments with extensive marker sets. In order to leverage this technology the measured signal must be unmixed to recover interpretable results. Current approaches to unmixing typically leverage linear deconvolution algorithms such as fitting by ordinary least squares method, that tend have issues dealing with various noise sources inherit to the data collection process. This thesis evaluates the performance of a novel non-linear approach of unmixing called nougad. For the evaluation, we have generated realistic artificial data with known ground truth for testing, implemented multi-threaded version of nougad and tuned its hyperparameters using Bayesian optimization, and collected several performance metrics of nougad and the other algorithms on the testing datasets. The results show that nougad is able to outperform the tested linear algorithms making this non-linear method more suitable for practical applications and a good candidate for further refinement and optimization efforts.
+
+}
+
+\def\AbstractCS{%
+Pokroky v oblasti průtokové cytometrie umožňují její využití pro high-througput zpracování single-cell vzorků a měření relativně velkého množství odlišných markerů. Pro efektivní využití této technologie je ale nezbytné unmixovat změřená buněčná spektra a tím se zpětně dobrat interpretovatelných výsledků. K řešení unmixovacího problému se v současnosti typicky využívají lineární dekonvoluční algoritmy, jak například metoda nejmenších čtverců, které ale mají problémy s optimálním zpracováním variabilních zdrojů šumu při měření vzorku. Cílem této práce je porovnat novou nelinearní unmixovací metodu nougad, která využíva algoritmus graidentního sestupu. Pro objektivní porovnání metod jsme vytvořili model, který generuje realistická data se známou `pravdou', naimplementovali paralelizovanou verzi algoritmu nougad a Bayesovsky zoptimalizovali příslušné hyperparametry. Algoritmy jsme porovnali prostřednitvím několik různých metrik. Ze srovnání jasně vyplívá, že nougad typicky podává lepší výsledky než testované lineární algoritmy. Nougad se tedy zdá být lepší volbou pro praktické využití a zároveň slibným kandidátem pro další optimalizaci a vývoj.
+}
+
+% 3 to 5 keywords (recommended), each enclosed in curly braces.
+% Keywords are useful for indexing and searching for the theses by topic.
+\def\Keywords{%
+{
+{spectral,} {Flow,} {Cytometry,} {Unmixing,} {Gradient,} {Descent,} {Optimization,} {Performance,} {Nougad,} {EmbedSOM,} {SOM,} {OLS,} {WLS,} {weighted,} {least,} {Squares,} {MSE,} {Noise,} {Bayes,} {Bioinformatics} 
+}
+}
+
+% If your abstracts are long and do not fit in the infopage, you can make the
+% fonts a bit smaller by this setting. (Also, you should try to compress your abstract more.)
+% Alternatively, consider increasing the size of the page by uncommenting the
+% geometry modification in thesis.tex.
+\def\InfoPageFont{}
+%\def\InfoPageFont{\small}  %uncomment to decrease font size
+
+\ifEN\relax\else
+% If you are writing a czech thesis, you additionally need to fill in the
+% english translation of the metadata here!
+\def\ThesisTitleEN{\xxx{Thesis title in English}}
+\def\DepartmentEN{\xxx{Name of the department in English}}
+\def\DeptTypeEN{\xxx{Department}}
+\def\SupervisorsDepartmentEN{\xxx{Superdepartment}}
+\def\StudyProgrammeEN{\xxx{study programme}}
+\def\StudyBranchEN{\xxx{study branch}}
+\def\KeywordsEN{%
+\xxx{{key} {words}}
+}
+\fi
